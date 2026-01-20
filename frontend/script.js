@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
   }, 5000);
 });
 
-let API_BASE = "http://127.0.0.1:5000";
+let API_BASE = "https://spell-checker-jc5e.onrender.com";
 
 const inputText = document.getElementById("inputText");
 const outputText = document.getElementById("outputText");
