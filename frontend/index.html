@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spell Checker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ✅ RED CINEMATIC INTRO -->
+  <div id="introScreen" class="introScreenRed">
+    <div class="redGrid"></div>
+    <div class="redGlow"></div>
+
+    <div class="introContentRed">
+      <div class="introLineRed line1">
+        We are presenting you the
+      </div>
+
+      <div class="introLineRed line2">
+        Python Based Learning (PBL) Project
+      </div>
+
+      <div class="introMainTitleRed">
+        SPELL CHECKER
+      </div>
+
+      <div class="introTeamRed">
+        Team: <span>PYTHON TECHS</span>
+      </div>
+
+      <div class="introCreditsRed">
+        <div class="creditsTitleRed">Creators</div>
+
+        <div class="creditRowRed">
+          <b>Shakshi Kumari</b> & <b>Sridevi R</b> — Report & Documentation
+        </div>
+
+        <div class="creditRowRed">
+          <b>Shashank</b> & <b>Sagar</b> — Frontend & Backend Development
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Main App (hidden at start) -->
+  <div id="mainApp" class="hidden">
+
+    <div class="bgGlow"></div>
+
+    <div class="container">
+
+      <!-- ✅ HERO SECTION -->
+      <header class="hero">
+        <div class="heroLeft">
+          <span class="badge">✨ AI + Spell Checker</span>
+          <h1>Spell Checker</h1>
+          <p>
+            Improve your writing with smart spelling correction and AI professional rewriting.
+            Clean, fast, and built with a modern coding vibe.
+          </p>
+
+          <div class="heroButtons">
+            <!-- ✅ old buttons -->
+            <button id="checkBtn" class="btn primary">Check Spelling</button>
+            <button id="aiBtn" class="btn ai">AI Improve ✨</button>
+
+            <!-- ✅ NEW buttons -->
+            <button id="toneBtn" class="btn secondary">Detect Tone 🎭</button>
+            <button id="pdfBtn" class="btn ghost">Download PDF</button>
+            <button id="docxBtn" class="btn ghost">Download DOCX</button>
+
+            <button id="clearBtn" class="btn ghost">Clear</button>
+          </div>
+        </div>
+
+        <div class="heroRight">
+          <div class="imageCard">
+            <img
+              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80"
+              alt="Coding Vibe"
+            />
+            <div class="imageOverlay">
+              <div class="imageTitle">Coding Vibes</div>
+              <div class="imageSub">Spell • Fix • Improve 🚀</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ✅ MAIN GRID -->
+      <section class="grid">
+
+        <!-- Input -->
+        <div class="card">
+          <div class="cardTitle">📝 Input Text</div>
+          <textarea id="inputText" placeholder="Type your text here..."></textarea>
+        </div>
+
+        <!-- Stats + Wrong Words -->
+        <div class="card">
+          <div class="cardTitle">📊 Stats</div>
+          <div class="stats">
+            <div class="statBox">
+              <span class="statLabel">Total Words</span>
+              <span id="totalWords" class="statValue">0</span>
+            </div>
+
+            <div class="statBox">
+              <span class="statLabel">Mistakes</span>
+              <span id="mistakesCount" class="statValue">0</span>
+            </div>
+
+            <div class="statBox">
+              <span class="statLabel">Accuracy</span>
+              <span id="accuracy" class="statValue">0%</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="cardTitle">📌 Wrong Words & Suggestions</div>
+          <div id="mistakesList" class="mistakesBox"></div>
+        </div>
+
+        <!-- Corrected Text -->
+        <div class="card">
+          <div class="cardTitle">✅ Corrected Text</div>
+          <textarea id="outputText" readonly placeholder="Corrected text will appear here..."></textarea>
+          <button id="copyBtn" class="btn secondary full">Copy Corrected Text</button>
+        </div>
+
+        <!-- AI Output -->
+        <div class="card">
+          <div class="cardTitle">🤖 AI Professional Version ✨</div>
+          <textarea id="aiOutput" readonly placeholder="AI professional rewrite will appear here..."></textarea>
+          <p class="hint">Tip: AI may take 2–6 seconds.</p>
+
+          <!-- ✅ NEW Tone Output -->
+          <div class="divider"></div>
+          <div class="cardTitle">🎭 Tone Detector Result</div>
+          <div id="toneOutput" class="toneBox">No tone detected yet.</div>
+        </div>
+
+        <!-- Custom Dictionary -->
+        <div class="card fullWidth">
+          <div class="cardTitle">📚 Add Custom Word (Your Dictionary)</div>
+
+          <div class="customDictRow">
+            <input id="customWord" type="text" placeholder="Example: Sagar, ChatGPT, NumPy" />
+            <button id="addWordBtn" class="btn primary">Add Word</button>
+          </div>
+
+          <p id="dictStatus" class="status"></p>
+        </div>
+
+      </section>
+
+      <!-- ✅ TEAM PORTFOLIO SECTION -->
+      <section class="teamSection">
+        <h2 class="teamTitle">Meet the Team 🚀</h2>
+        <p class="teamSubtitle">
+          We are <b>ISE 3-C</b> Engineering Students from
+          <b>Dayananda Sagar Academy of Technology and Management</b>.
+        </p>
+
+        <div class="teamGrid">
+
+          <div class="teamCard">
+            <h3>SAGAR</h3>
+            <p class="usn">1DT24IS113</p>
+            <p class="role">ISE 3-C • Engineering Student</p>
+            <a class="linkedinBtn" href="https://www.linkedin.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+          </div>
+
+          <div class="teamCard">
+            <h3>SHAKSHI KUMARI</h3>
+            <p class="usn">1DT24IS123</p>
+            <p class="role">ISE 3-C • Engineering Student</p>
+            <a class="linkedinBtn" href="https://www.linkedin.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+          </div>
+
+          <div class="teamCard">
+            <h3>SHASHANK</h3>
+            <p class="usn">1DT24IS124</p>
+            <p class="role">ISE 3-C • Engineering Student</p>
+            <a class="linkedinBtn" href="https://www.linkedin.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+          </div>
+
+          <div class="teamCard">
+            <h3>SRIDEVI R</h3>
+            <p class="usn">1DT24IS138</p>
+            <p class="role">ISE 3-C • Engineering Student</p>
+            <a class="linkedinBtn" href="https://www.linkedin.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <footer>
+        <p>⚡ Built by Team Spell Checker</p>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

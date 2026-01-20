@@ -1,0 +1,586 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+
+body{
+  background: #070a12;
+  color: #e5e7eb;
+  padding: 18px;
+  overflow-x: hidden;
+}
+
+/* ✅ Intro Screen Red Professional */
+.introScreenRed{
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #2a0000, #000000 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* ✅ red grid animation background */
+.redGrid{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,0,0,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,0,0,0.12) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.25;
+  animation: gridMove 3s linear infinite;
+}
+
+@keyframes gridMove{
+  0%{ transform: translate(0,0); }
+  100%{ transform: translate(80px,80px); }
+}
+
+/* ✅ glow pulse */
+.redGlow{
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(255,0,0,0.25), transparent 60%);
+  animation: glowPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+  0%,100%{ transform: scale(1); opacity: 0.6; }
+  50%{ transform: scale(1.1); opacity: 1; }
+}
+
+/* ✅ intro content */
+.introContentRed{
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  max-width: 1000px;
+  z-index: 2;
+  animation: introFadeOut 5s ease forwards;
+}
+
+.introLineRed{
+  opacity: 0;
+  color: #ffe4e4;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  animation: slideUpFade 1s ease forwards;
+}
+
+.line1{
+  animation-delay: 0.3s;
+  font-size: 1.35rem;
+}
+
+.line2{
+  animation-delay: 0.8s;
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+/* ✅ Main title huge like Netflix */
+.introMainTitleRed{
+  opacity: 0;
+  margin: 18px 0 14px;
+  font-size: 4.8rem;
+  font-weight: 900;
+  letter-spacing: 10px;
+  color: #ff1a1a;
+  text-shadow: 0 0 35px rgba(255,0,0,0.85);
+  animation: zoomInGlow 1.4s ease forwards;
+  animation-delay: 1.2s;
+}
+
+/* ✅ Team */
+.introTeamRed{
+  opacity: 0;
+  margin-top: 6px;
+  font-size: 1.3rem;
+  color: #ffb3b3;
+  letter-spacing: 3px;
+  animation: slideUpFade 1s ease forwards;
+  animation-delay: 1.8s;
+}
+
+.introTeamRed span{
+  color: #ffffff;
+  font-weight: 900;
+  text-shadow: 0 0 18px rgba(255,0,0,0.85);
+}
+
+/* ✅ Credits */
+.introCreditsRed{
+  opacity: 0;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  animation: slideUpFade 1s ease forwards;
+  animation-delay: 2.3s;
+}
+
+.creditsTitleRed{
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.creditRowRed{
+  font-size: 1.1rem;
+  opacity: 0.92;
+  margin: 6px 0;
+  line-height: 1.6;
+  color: #ffd6d6;
+}
+
+.creditRowRed b{
+  color: #ffffff;
+  text-shadow: 0 0 14px rgba(255,0,0,0.8);
+}
+
+/* ✅ Intro Animations */
+@keyframes slideUpFade{
+  0%{ transform: translateY(25px); opacity: 0; }
+  100%{ transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomInGlow{
+  0%{ transform: scale(0.6); opacity: 0; }
+  100%{ transform: scale(1); opacity: 1; }
+}
+
+@keyframes introFadeOut{
+  0%{ opacity: 1; }
+  82%{ opacity: 1; }
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Hide main app initially */
+.hidden{
+  display: none;
+}
+
+/* glow background main app */
+.bgGlow{
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 0, 0, 0.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(96, 165, 250, 0.14), transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.10), transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container{
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* HERO */
+.hero{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.heroLeft{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.badge{
+  display: inline-flex;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 999px;
+  background: rgba(255,0,0,0.12);
+  border: 1px solid rgba(255,0,0,0.25);
+  color: #ffb3b3;
+}
+
+.heroLeft h1{
+  margin-top: 10px;
+  font-size: 2.8rem;
+  letter-spacing: -0.5px;
+}
+
+.heroLeft p{
+  margin-top: 10px;
+  opacity: 0.85;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.heroButtons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* Image Card */
+.imageCard{
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  min-height: 260px;
+}
+
+.imageCard img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) brightness(0.85);
+}
+
+.imageOverlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.0));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.imageTitle{
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.imageSub{
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* GRID */
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card{
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.fullWidth{
+  grid-column: 1 / -1;
+}
+
+.cardTitle{
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+textarea{
+  width:100%;
+  min-height: 160px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 12px;
+  background: rgba(0,0,0,0.28);
+  color: #e5e7eb;
+  outline: none;
+  resize: vertical;
+  line-height: 1.7;
+  transition: 0.2s;
+  font-size: 1.05rem;
+}
+
+textarea:focus{
+  border-color: rgba(255,0,0,0.35);
+  box-shadow: 0 0 0 3px rgba(255,0,0,0.12);
+}
+
+/* buttons */
+.btn{
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  padding: 10px 16px;
+  font-weight: 800;
+  transition: 0.18s;
+  font-size: 1.05rem;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+}
+
+.primary{
+  background: linear-gradient(135deg, #ff1a1a, #ff6b6b);
+  color: #140202;
+}
+
+.ai{
+  background: linear-gradient(135deg, #a855f7, #ff1a1a);
+  color: #0b0b15;
+}
+
+.secondary{
+  background: rgba(255,255,255,0.12);
+  color: #e5e7eb;
+}
+
+.ghost{
+  background: rgba(255,255,255,0.06);
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.full{
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* stats */
+.stats{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.statBox{
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.statLabel{
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.statValue{
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-top: 6px;
+  color: #ff6b6b;
+}
+
+/* divider */
+.divider{
+  height: 1px;
+  background: rgba(255,255,255,0.10);
+  margin: 12px 0;
+}
+
+/* mistakes */
+.mistakesBox{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mistakeItem{
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.mistakeItem b{
+  color: #ffb3b3;
+}
+
+.suggestions{
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sugBtn{
+  padding: 7px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.10);
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,0.10);
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.sugBtn:hover{
+  background: rgba(255,0,0,0.12);
+  border-color: rgba(255,0,0,0.35);
+}
+
+/* custom dictionary */
+.customDictRow{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.customDictRow input{
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border:  1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.28);
+  color: #e5e7eb;
+  outline: none;
+  font-size: 1.05rem;
+}
+
+.customDictRow input:focus{
+  border-color: rgba(255,0,0,0.35);
+  box-shadow: 0 0 0 3px rgba(255,0,0,0.12);
+}
+
+.status{
+  margin-top: 10px;
+  opacity: 0.85;
+  color: #ffd6d6;
+  font-size: 1rem;
+}
+
+.hint{
+  margin-top: 8px;
+  opacity: 0.75;
+  font-size: 1rem;
+}
+
+/* Team */
+.teamSection{
+  margin-top: 20px;
+  padding: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.teamTitle{
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.teamSubtitle{
+  opacity: 0.8;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.teamGrid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.teamCard{
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.10);
+  transition: 0.2s;
+}
+
+.teamCard:hover{
+  transform: translateY(-3px);
+  border-color: rgba(255,0,0,0.35);
+}
+
+.teamCard h3{
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.usn{
+  margin-top: 6px;
+  font-weight: 900;
+  color: #ff6b6b;
+  font-size: 1rem;
+}
+
+.role{
+  margin-top: 6px;
+  opacity: 0.85;
+  font-size: 1rem;
+}
+
+.linkedinBtn{
+  display: inline-flex;
+  margin-top: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.linkedinBtn:hover{
+  background: rgba(255,0,0,0.15);
+  border-color: rgba(255,0,0,0.35);
+}
+
+.linkedinBtn img{
+  width: 22px;
+  height: 22px;
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .hero{ grid-template-columns: 1fr; }
+  .grid{ grid-template-columns: 1fr; }
+  .stats{ grid-template-columns: 1fr; }
+  .teamGrid{ grid-template-columns: 1fr 1fr; }
+  .introMainTitleRed{ font-size: 3.2rem; letter-spacing: 5px; }
+}
+
+@media (max-width: 500px){
+  .teamGrid{ grid-template-columns: 1fr; }
+  .introMainTitleRed{ font-size: 2.5rem; letter-spacing: 3px; }
+}
+footer{
+  margin-top: 14px;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 1rem;
+}
+/* ✅ Tone Output Box */
+.toneBox{
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.10);
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #ffd6d6;
+}
